@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:rajdeep_singh_s_application5/core/app_export.dart';
-import 'package:rajdeep_singh_s_application6/core/app_export.dart';
-import 'package:rajdeep_singh_s_application6/widgets/app_bar/appbar_title.dart';
-import 'package:rajdeep_singh_s_application6/widgets/app_bar/custom_app_bar.dart';
-import 'package:rajdeep_singh_s_application6/widgets/custom_elevated_button.dart';
-import 'package:rajdeep_singh_s_application6/widgets/custom_rating_bar.dart';
-import 'package:rajdeep_singh_s_application6/widgets/custom_search_view.dart';
+import 'package:rajdeep_singh_s_application8/core/app_export.dart';
+import 'package:rajdeep_singh_s_application8/widgets/app_bar/appbar_title.dart';
+import 'package:rajdeep_singh_s_application8/widgets/app_bar/custom_app_bar.dart';
+import 'package:rajdeep_singh_s_application8/widgets/custom_elevated_button.dart';
+import 'package:rajdeep_singh_s_application8/widgets/custom_rating_bar.dart';
+import 'package:rajdeep_singh_s_application8/widgets/custom_search_view.dart';
 
-import '../../widgets/custom_elevated_button.dart';
-import '../../widgets/custom_rating_bar.dart';
-
-class CoachesScreen extends StatelessWidget {
-  CoachesScreen({Key? key})
+class CompareScreen extends StatelessWidget {
+  CompareScreen({Key? key})
       : super(
           key: key,
         );
@@ -47,7 +43,7 @@ class CoachesScreen extends StatelessWidget {
               SizedBox(height: 45.v),
               _buildSearchRow(context),
               SizedBox(height: 12.v),
-              _buildAcademyRows(context),
+              _buildAcademyDetailsRow(context),
               SizedBox(height: 14.v),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 57.h),
@@ -69,7 +65,7 @@ class CoachesScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: _buildJoinButtons(context),
+        bottomNavigationBar: _buildJoinRow(context),
       ),
     );
   }
@@ -134,7 +130,7 @@ class CoachesScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildAcademyRows(BuildContext context) {
+  Widget _buildAcademyDetailsRow(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -291,7 +287,7 @@ class CoachesScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildJoinButtons(BuildContext context) {
+  Widget _buildJoinRow(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
         left: 32.h,
