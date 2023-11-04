@@ -9,6 +9,9 @@ void main() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.white,
+  ));
 
   ///Please update theme as per your need if required.
   ThemeHelper().changeTheme('primary');
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      title: 'rajdeep_singh_s_application5',
+      title: 'SportsEase',
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.splashScreen,
       routes: AppRoutes.routes,

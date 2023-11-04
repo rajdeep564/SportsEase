@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:rajdeep_singh_s_application5/core/app_export.dart';
 import 'package:rajdeep_singh_s_application5/widgets/custom_elevated_button.dart';
 
@@ -21,8 +22,8 @@ class SplashScreen extends StatelessWidget {
             children: [
               CustomImageView(
                 imagePath: ImageConstant.imgMaskGroup,
-                height: 515.v,
-                width: 374.h,
+                height: 521.v,
+                width: 364.h,
               ),
               SizedBox(height: 25.v),
               Container(
@@ -47,7 +48,6 @@ class SplashScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 11.v),
               Container(
                 width: 277.h,
                 margin: EdgeInsets.only(
@@ -62,7 +62,7 @@ class SplashScreen extends StatelessWidget {
                   style: CustomTextStyles.bodySmallOnPrimary,
                 ),
               ),
-              SizedBox(height: 38.v),
+              SizedBox(height: 32.v),
               CustomElevatedButton(
                 text: "Let’s Get Started",
                 margin: EdgeInsets.only(
@@ -70,7 +70,7 @@ class SplashScreen extends StatelessWidget {
                   right: 35.h,
                 ),
               ),
-              SizedBox(height: 43.v),
+              SizedBox(height: 32.v),
               RichText(
                 text: TextSpan(
                   children: [
