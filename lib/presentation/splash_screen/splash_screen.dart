@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rajdeep_singh_s_application5/core/app_export.dart';
+import 'package:rajdeep_singh_s_application5/presentation/create_account_screen/create_account_screen.dart';
 import 'package:rajdeep_singh_s_application5/widgets/custom_elevated_button.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -64,6 +65,11 @@ class SplashScreen extends StatelessWidget {
               ),
               SizedBox(height: 32.v),
               CustomElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => CreateAccountScreen())
+                  );
+                },
                 text: "Let’s Get Started",
                 margin: EdgeInsets.only(
                   left: 39.h,

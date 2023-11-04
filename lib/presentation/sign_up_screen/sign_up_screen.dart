@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rajdeep_singh_s_application5/core/app_export.dart';
+import 'package:rajdeep_singh_s_application5/presentation/dashboard_screen/dashboard_screen.dart';
+import 'package:rajdeep_singh_s_application5/presentation/home_one_container_screen/home_one_container_screen.dart';
+import 'package:rajdeep_singh_s_application5/presentation/home_one_page/home_one_page.dart';
 import 'package:rajdeep_singh_s_application5/widgets/custom_checkbox_button.dart';
 import 'package:rajdeep_singh_s_application5/widgets/custom_elevated_button.dart';
 import 'package:rajdeep_singh_s_application5/widgets/custom_text_form_field.dart';
@@ -35,9 +38,14 @@ class SignUpScreen extends StatelessWidget {
                           width: 166.h),
                       Spacer(),
                       CustomTextFormField(
-                          controller: userNameController, hintText: "Username"),
+                          decoration: InputDecoration(
+                              errorStyle: TextStyle(fontSize: 10.0)),
+                          controller: userNameController,
+                          hintText: "Username"),
                       SizedBox(height: 10.v),
                       CustomTextFormField(
+                          decoration: InputDecoration(
+                              errorStyle: TextStyle(fontSize: 10.0)),
                           controller: passwordController,
                           hintText: "Password",
                           textInputAction: TextInputAction.done,
@@ -59,6 +67,10 @@ class SignUpScreen extends StatelessWidget {
                       SizedBox(height: 40.v),
                       CustomElevatedButton(
                           text: "Log In",
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => HomeOnePage()));
+                          },
                           margin: EdgeInsets.symmetric(horizontal: 30.h)),
                       SizedBox(height: 29.v),
                       GestureDetector(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rajdeep_singh_s_application5/core/app_export.dart';
+import 'package:rajdeep_singh_s_application5/presentation/sign_up_screen/sign_up_screen.dart';
 import 'package:rajdeep_singh_s_application5/widgets/custom_elevated_button.dart';
 import 'package:rajdeep_singh_s_application5/widgets/custom_text_form_field.dart';
 
@@ -40,7 +41,6 @@ class CreateAccountScreen extends StatelessWidget {
             ),
             child: Column(
               children: [
-                SizedBox(height: 11.v),
                 Text(
                   "Create new account",
                   style: theme.textTheme.titleLarge,
@@ -50,7 +50,7 @@ class CreateAccountScreen extends StatelessWidget {
                   "Fill up the information below to Create account ",
                   style: CustomTextStyles.bodySmallPoppinsBlack90012_1,
                 ),
-                SizedBox(height: 72.v),
+                SizedBox(height: 64.v),
                 _buildName(context),
                 SizedBox(height: 12.v),
                 _buildPhoneNumber(context),
@@ -86,8 +86,15 @@ class CreateAccountScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildName(BuildContext context) {
     return CustomTextFormField(
+      decoration: InputDecoration(errorStyle: TextStyle(fontSize: 14.0)),
       controller: nameController,
       hintText: "Name",
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter your name';
+        }
+        return null;
+      },
     );
   }
 
@@ -97,6 +104,16 @@ class CreateAccountScreen extends StatelessWidget {
       controller: phoneNumberController,
       hintText: "Phone number",
       textInputType: TextInputType.phone,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter your phone number';
+        }
+        if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
+          return 'Please enter a valid 10-digit phone number';
+        }
+        return null;
+      },
+      decoration: InputDecoration(errorStyle: TextStyle(fontSize: 10.0)),
     );
   }
 
@@ -106,6 +123,16 @@ class CreateAccountScreen extends StatelessWidget {
       controller: emailController,
       hintText: "Email",
       textInputType: TextInputType.emailAddress,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter your email';
+        }
+        if (!RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$').hasMatch(value)) {
+          return 'Please enter a valid email address';
+        }
+        return null;
+      },
+      decoration: InputDecoration(errorStyle: TextStyle(fontSize: 10.0)),
     );
   }
 
@@ -114,14 +141,16 @@ class CreateAccountScreen extends StatelessWidget {
     return CustomTextFormField(
       controller: dobController,
       hintText: "DOB",
+      decoration: InputDecoration(errorStyle: TextStyle(fontSize: 10.0)),
     );
   }
 
-  /// Section Widget
+
   Widget _buildGender(BuildContext context) {
     return CustomTextFormField(
       controller: genderController,
       hintText: "Gender",
+      decoration: InputDecoration(errorStyle: TextStyle(fontSize: 10.0)),
     );
   }
 
@@ -130,6 +159,15 @@ class CreateAccountScreen extends StatelessWidget {
     return CustomTextFormField(
       controller: passwordController,
       hintText: "Password",
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter a password';
+        }
+        if (value.length < 6) {
+          return 'Password must be at least 6 characters long';
+        }
+        return null;
+      },
       textInputAction: TextInputAction.done,
       textInputType: TextInputType.visiblePassword,
       suffix: Container(
@@ -149,6 +187,7 @@ class CreateAccountScreen extends StatelessWidget {
         top: 14.v,
         bottom: 14.v,
       ),
+      decoration: InputDecoration(errorStyle: TextStyle(fontSize: 10.0)),
     );
   }
 
@@ -156,6 +195,13 @@ class CreateAccountScreen extends StatelessWidget {
   Widget _buildSignUp(BuildContext context) {
     return CustomElevatedButton(
       text: "Sign up",
+      onPressed: () {
+        if (_formKey.currentState!.validate()) {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            return SignUpScreen();
+          }));
+        }
+      },
       margin: EdgeInsets.only(
         left: 31.h,
         right: 29.h,

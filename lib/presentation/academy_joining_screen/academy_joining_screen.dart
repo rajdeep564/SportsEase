@@ -89,6 +89,8 @@ class AcademyJoiningScreen extends StatelessWidget {
                           _buildAreaDetails(context),
                           SizedBox(height: 6.v),
                           CustomTextFormField(
+                            decoration: InputDecoration(
+                                errorStyle: TextStyle(fontSize: 10.0)),
                             controller: pincodeController,
                             hintText: "Pincode",
                             hintStyle: CustomTextStyles.labelMediumGray700,

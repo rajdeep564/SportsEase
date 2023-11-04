@@ -50,6 +50,8 @@ class CreateNewPasswordScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 52.v),
                 CustomTextFormField(
+                  decoration:
+                      InputDecoration(errorStyle: TextStyle(fontSize: 10.0)),
                   controller: newpasswordController,
                   hintText: "New password",
                   textInputType: TextInputType.visiblePassword,
@@ -57,6 +59,8 @@ class CreateNewPasswordScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 12.v),
                 CustomTextFormField(
+                  decoration:
+                      InputDecoration(errorStyle: TextStyle(fontSize: 10.0)),
                   controller: confirmpasswordController,
                   hintText: "Confirm password",
                   textInputAction: TextInputAction.done,

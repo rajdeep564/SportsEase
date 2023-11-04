@@ -38,6 +38,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                                   .bodySmallPoppinsBlack90012_1)),
                       SizedBox(height: 63.v),
                       CustomTextFormField(
+                          decoration: InputDecoration(
+                              errorStyle: TextStyle(fontSize: 10.0)),
                           controller: mobileNumberController,
                           hintText: "Enter your email or mobile number",
                           textInputAction: TextInputAction.done,
